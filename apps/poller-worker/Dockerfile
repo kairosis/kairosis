@@ -1,12 +1,8 @@
 FROM node:22-alpine AS builder
 WORKDIR /app
-COPY package*.json nx.json tsconfig.base.json ./
+COPY . .
 RUN npm ci
-COPY apps/ ./apps/
-COPY libs/ ./libs/
-COPY events/ ./events/
-COPY packages/ ./packages/
-COPY connectors/ ./connectors/
+ENV NX_DAEMON=false
 RUN npx nx build poller-worker
 
 FROM node:22-alpine AS runner
