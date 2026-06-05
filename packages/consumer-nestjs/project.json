@@ -1,0 +1,20 @@
+{
+  "name": "consumer-nestjs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/consumer-nestjs/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/consumer-nestjs",
+        "main": "packages/consumer-nestjs/src/index.ts",
+        "tsConfig": "packages/consumer-nestjs/tsconfig.lib.json",
+        "assets": ["packages/consumer-nestjs/*.md"],
+        "rootDir": "."
+      }
+    }
+  }
+}

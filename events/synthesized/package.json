@@ -1,0 +1,11 @@
+{
+  "name": "@kairosis/synthesized-events",
+  "version": "0.1.0",
+  "description": "Synthesized event types for Kairosis",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "zod": "^3.22.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "synthesized-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/synthesized/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/synthesized",
+        "main": "events/synthesized/src/index.ts",
+        "tsConfig": "events/synthesized/tsconfig.lib.json",
+        "assets": ["events/synthesized/*.md"]
+      }
+    }
+  }
+}

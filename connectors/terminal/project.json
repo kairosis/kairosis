@@ -1,0 +1,19 @@
+{
+  "name": "terminal",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "connectors/terminal/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/connectors/terminal",
+        "main": "connectors/terminal/src/index.ts",
+        "tsConfig": "connectors/terminal/tsconfig.lib.json",
+        "assets": ["connectors/terminal/*.md"]
+      }
+    }
+  }
+}

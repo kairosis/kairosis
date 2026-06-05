@@ -1,0 +1,19 @@
+{
+  "name": "browser",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "connectors/browser/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/connectors/browser",
+        "main": "connectors/browser/src/index.ts",
+        "tsConfig": "connectors/browser/tsconfig.lib.json",
+        "assets": ["connectors/browser/*.md"]
+      }
+    }
+  }
+}

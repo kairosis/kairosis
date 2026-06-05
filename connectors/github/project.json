@@ -1,0 +1,19 @@
+{
+  "name": "github",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "connectors/github/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/connectors/github",
+        "main": "connectors/github/src/index.ts",
+        "tsConfig": "connectors/github/tsconfig.lib.json",
+        "assets": ["connectors/github/*.md"]
+      }
+    }
+  }
+}

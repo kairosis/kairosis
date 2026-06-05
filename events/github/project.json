@@ -1,0 +1,19 @@
+{
+  "name": "github-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/github/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/github",
+        "main": "events/github/src/index.ts",
+        "tsConfig": "events/github/tsconfig.lib.json",
+        "assets": ["events/github/*.md"]
+      }
+    }
+  }
+}

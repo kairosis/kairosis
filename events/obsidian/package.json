@@ -1,0 +1,11 @@
+{
+  "name": "@kairosis/obsidian-events",
+  "version": "0.1.0",
+  "description": "Obsidian event types for Kairosis",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "zod": "^3.22.0"
+  },
+  "license": "MIT"
+}

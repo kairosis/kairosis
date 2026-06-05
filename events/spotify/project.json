@@ -1,0 +1,19 @@
+{
+  "name": "spotify-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/spotify/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/spotify",
+        "main": "events/spotify/src/index.ts",
+        "tsConfig": "events/spotify/tsconfig.lib.json",
+        "assets": ["events/spotify/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "notion-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/notion/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/notion",
+        "main": "events/notion/src/index.ts",
+        "tsConfig": "events/notion/tsconfig.lib.json",
+        "assets": ["events/notion/*.md"]
+      }
+    }
+  }
+}

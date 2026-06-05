@@ -1,0 +1,19 @@
+{
+  "name": "email-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/email/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/email",
+        "main": "events/email/src/index.ts",
+        "tsConfig": "events/email/tsconfig.lib.json",
+        "assets": ["events/email/*.md"]
+      }
+    }
+  }
+}

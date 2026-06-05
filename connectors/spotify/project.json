@@ -1,0 +1,19 @@
+{
+  "name": "spotify",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "connectors/spotify/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/connectors/spotify",
+        "main": "connectors/spotify/src/index.ts",
+        "tsConfig": "connectors/spotify/tsconfig.lib.json",
+        "assets": ["connectors/spotify/*.md"]
+      }
+    }
+  }
+}

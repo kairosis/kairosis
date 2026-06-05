@@ -1,0 +1,19 @@
+{
+  "name": "browser-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/browser/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/browser",
+        "main": "events/browser/src/index.ts",
+        "tsConfig": "events/browser/tsconfig.lib.json",
+        "assets": ["events/browser/*.md"]
+      }
+    }
+  }
+}

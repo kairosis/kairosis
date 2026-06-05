@@ -1,0 +1,19 @@
+{
+  "name": "slack-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/slack/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/slack",
+        "main": "events/slack/src/index.ts",
+        "tsConfig": "events/slack/tsconfig.lib.json",
+        "assets": ["events/slack/*.md"]
+      }
+    }
+  }
+}

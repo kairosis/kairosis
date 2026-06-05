@@ -1,0 +1,20 @@
+{
+  "name": "consumer-sdk",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/consumer-sdk/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/consumer-sdk",
+        "main": "packages/consumer-sdk/src/index.ts",
+        "tsConfig": "packages/consumer-sdk/tsconfig.lib.json",
+        "assets": ["packages/consumer-sdk/*.md"],
+        "rootDir": "."
+      }
+    }
+  }
+}

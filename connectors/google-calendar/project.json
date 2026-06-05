@@ -1,0 +1,19 @@
+{
+  "name": "google-calendar",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "connectors/google-calendar/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/connectors/google-calendar",
+        "main": "connectors/google-calendar/src/index.ts",
+        "tsConfig": "connectors/google-calendar/tsconfig.lib.json",
+        "assets": ["connectors/google-calendar/*.md"]
+      }
+    }
+  }
+}

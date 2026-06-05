@@ -1,0 +1,31 @@
+storage: /verdaccio/storage
+auth:
+  htpasswd:
+    file: /verdaccio/storage/htpasswd
+    max_users: -1        # disable new user registration; manage users manually
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+    timeout: 30s
+
+packages:
+  # @kairosis/* — allow anyone to publish and read without auth
+  '@kairosis/*':
+    access: $all
+    publish: $all
+    unpublish: $all
+
+  # everything else — read-through proxy to npmjs, no local publishing
+  '**':
+    access: $all
+    proxy: npmjs
+
+log: { type: stdout, format: pretty, level: info }
+
+server:
+  keepAliveTimeout: 60
+
+middlewares:
+  audit:
+    enabled: true

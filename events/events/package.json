@@ -1,0 +1,11 @@
+{
+  "name": "@kairosis/events",
+  "version": "0.1.0",
+  "description": "All Kairosis event types — re-exports from all event packages",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "zod": "^3.22.0"
+  },
+  "license": "MIT"
+}

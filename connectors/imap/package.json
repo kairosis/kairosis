@@ -1,0 +1,12 @@
+{
+  "name": "@kairosis/connector-imap",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "dependencies": {
+    "imapflow": "*",
+    "tslib": "^2.3.0"
+  }
+}

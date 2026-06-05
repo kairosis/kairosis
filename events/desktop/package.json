@@ -1,0 +1,8 @@
+{
+  "name": "@kairosis/desktop-events",
+  "version": "0.1.0",
+  "description": "Desktop event types for Kairosis",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "license": "MIT"
+}

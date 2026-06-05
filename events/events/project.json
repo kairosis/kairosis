@@ -1,0 +1,19 @@
+{
+  "name": "events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/events/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/events",
+        "main": "events/events/src/index.ts",
+        "tsConfig": "events/events/tsconfig.lib.json",
+        "assets": ["events/events/*.md"]
+      }
+    }
+  }
+}

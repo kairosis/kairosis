@@ -1,0 +1,56 @@
+name: Publish npm Packages
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@kairosis'
+
+      - run: npm ci
+
+      - name: Extract version from tag
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
+
+      - name: Build packages
+        run: npx nx run-many -t build --projects=events,connector-sdk,consumer-sdk,consumer-nestjs
+
+      - name: Publish @kairosis/events
+        run: |
+          npm version $VERSION --prefix dist/events/events --no-git-tag-version --allow-same-version
+          npm publish dist/events/events --registry https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish @kairosis/connector-sdk
+        run: |
+          npm version $VERSION --prefix dist/packages/connector-sdk --no-git-tag-version --allow-same-version
+          npm publish dist/packages/connector-sdk --registry https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish @kairosis/consumer-sdk
+        run: |
+          npm version $VERSION --prefix dist/packages/consumer-sdk --no-git-tag-version --allow-same-version
+          npm publish dist/packages/consumer-sdk --registry https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish @kairosis/consumer-nestjs
+        run: |
+          npm version $VERSION --prefix dist/packages/consumer-nestjs --no-git-tag-version --allow-same-version
+          npm publish dist/packages/consumer-nestjs --registry https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

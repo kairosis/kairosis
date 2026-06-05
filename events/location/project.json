@@ -1,0 +1,19 @@
+{
+  "name": "location-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/location/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/location",
+        "main": "events/location/src/index.ts",
+        "tsConfig": "events/location/tsconfig.lib.json",
+        "assets": ["events/location/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "outDir": "../../dist/apps/electron",
+    "rootDir": "src",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "types": ["node"]
+  },
+  "include": ["src/main.ts", "src/preload.ts"]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "connector-sdk",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/connector-sdk/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/connector-sdk",
+        "main": "packages/connector-sdk/src/index.ts",
+        "tsConfig": "packages/connector-sdk/tsconfig.lib.json",
+        "assets": ["packages/connector-sdk/*.md"],
+        "rootDir": "."
+      }
+    }
+  }
+}

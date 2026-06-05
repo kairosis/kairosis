@@ -1,0 +1,20 @@
+{
+  "name": "@kairosis/consumer-nestjs",
+  "version": "0.1.0",
+  "description": "NestJS module wrapping the Kairosis consumer SDK",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "dependencies": {
+    "@kairosis/consumer-sdk": "*"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "zod": "^3.22.0"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873",
+    "access": "public"
+  },
+  "license": "MIT"
+}

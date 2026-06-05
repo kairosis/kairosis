@@ -1,0 +1,15 @@
+{
+  "name": "@kairosis/connector-sdk",
+  "version": "0.1.0",
+  "description": "Connector authoring SDK for Kairosis",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "zod": "^3.22.0"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873",
+    "access": "public"
+  },
+  "license": "MIT"
+}

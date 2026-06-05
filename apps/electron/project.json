@@ -1,0 +1,37 @@
+{
+  "name": "electron",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/electron/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/apps/electron"],
+      "options": {
+        "commands": [
+          "npx tsc --project apps/electron/tsconfig.json",
+          "npx webpack --config apps/electron/webpack.renderer.config.js"
+        ],
+        "parallel": false
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "NODE_ENV=development npx webpack serve --config apps/electron/webpack.renderer.config.js",
+          "npx tsc --project apps/electron/tsconfig.json --watch",
+          "node apps/electron/electron-dev.mjs"
+        ],
+        "parallel": true
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "electron dist/apps/electron/main.js"
+      }
+    }
+  }
+}

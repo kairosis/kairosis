@@ -1,0 +1,19 @@
+{
+  "name": "calendar-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/calendar/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/calendar",
+        "main": "events/calendar/src/index.ts",
+        "tsConfig": "events/calendar/tsconfig.lib.json",
+        "assets": ["events/calendar/*.md"]
+      }
+    }
+  }
+}

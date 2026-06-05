@@ -1,0 +1,11 @@
+{
+  "name": "@kairosis/github-events",
+  "version": "0.1.0",
+  "description": "GitHub event types and payload schemas for Kairosis",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "zod": "^3.22.0"
+  },
+  "license": "MIT"
+}

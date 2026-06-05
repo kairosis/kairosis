@@ -1,0 +1,19 @@
+{
+  "name": "terminal-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/terminal/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/terminal",
+        "main": "events/terminal/src/index.ts",
+        "tsConfig": "events/terminal/tsconfig.lib.json",
+        "assets": ["events/terminal/*.md"]
+      }
+    }
+  }
+}

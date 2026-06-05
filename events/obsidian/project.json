@@ -1,0 +1,19 @@
+{
+  "name": "obsidian-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "events/obsidian/src",
+  "projectType": "library",
+  "tags": ["publishable"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/events/obsidian",
+        "main": "events/obsidian/src/index.ts",
+        "tsConfig": "events/obsidian/tsconfig.lib.json",
+        "assets": ["events/obsidian/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "slack",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "connectors/slack/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/connectors/slack",
+        "main": "connectors/slack/src/index.ts",
+        "tsConfig": "connectors/slack/tsconfig.lib.json",
+        "assets": ["connectors/slack/*.md"]
+      }
+    }
+  }
+}

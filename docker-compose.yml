@@ -1,0 +1,78 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: kairosis-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: kairosis
+      POSTGRES_USER: kairosis
+      POSTGRES_PASSWORD: kairosis_dev
+    ports:
+      - '5431:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ 'CMD-SHELL', 'pg_isready -U kairosis' ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: kairosis-rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: kairosis
+      RABBITMQ_DEFAULT_PASS: kairosis_dev
+    ports:
+      - '5671:5672'
+      - '15671:15672'
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: [ 'CMD', 'rabbitmq-diagnostics', '-q', 'ping' ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+  verdaccio:
+    image: verdaccio/verdaccio:latest
+    container_name: kairosis-verdaccio
+    restart: unless-stopped
+    ports:
+      - '4873:4873'
+    volumes:
+      - verdaccio_data:/verdaccio/storage
+      - ./verdaccio/config.yaml:/verdaccio/conf/config.yaml
+    healthcheck:
+      test: [ 'CMD', 'wget', '-qO-', 'http://localhost:4873/-/ping' ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  minio:
+    image: minio/minio:latest
+    container_name: kairosis-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: kairosis
+      MINIO_ROOT_PASSWORD: kairosis_dev
+    ports:
+      - '9100:9000'
+      - '9101:9001'
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: [ 'CMD', 'mc', 'ready', 'local' ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
+  minio_data:
+  verdaccio_data:

@@ -1,0 +1,19 @@
+{
+  "name": "imap",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "connectors/imap/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/connectors/imap",
+        "main": "connectors/imap/src/index.ts",
+        "tsConfig": "connectors/imap/tsconfig.lib.json",
+        "assets": ["connectors/imap/*.md"]
+      }
+    }
+  }
+}
