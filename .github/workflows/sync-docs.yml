@@ -19,11 +19,11 @@ jobs:
           script: |
             await github.rest.repos.createDispatchEvent({
               owner: 'kairosis',
-              repo:  'docs',
+              repo:  'kairosis.github.io',
               event_type: 'sync-docs',
               client_payload: {
                 ref: context.sha,
                 triggered_by: 'kairosis/kairosis',
               },
             });
-            console.log('Dispatched sync-docs to kairosis/docs');
+            console.log('Dispatched sync-docs to kairosis/kairosis.github.io');
