@@ -400,6 +400,12 @@ SyncConnector       bidirectional — import + export + live sync
 
 ---
 
+## Documentation
+
+Full documentation at **[kairosis.github.io](https://kairosis.github.io)** — connector reference, event schemas, SDK guides, and self-hosting instructions.
+
+---
+
 ## Contributing
 
 - Build a connector using [`@kairosis/connector-sdk`](https://github.com/Kairosis/kairosis/tree/main/packages/connector-sdk)
